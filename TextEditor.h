@@ -13,7 +13,7 @@ private:
 	ifstream inFile;
 	ofstream outFile;
 
-	//¸¨Öúº¯Êı
+	//è¾…åŠ©å‡½æ•°
 	bool NextLine();
 	bool PreviousLine();
 	bool GotoLine();
@@ -51,7 +51,7 @@ TextEditor::TextEditor(char infileName[])
 	}
 	inFile.close();
 
-	curLineNo = 1;  //³õÊ¼»¯µ±Ç°ĞĞºÅÎª1
+	curLineNo = 1;  //åˆå§‹åŒ–å½“å‰è¡Œå·ä¸º1
 }
 
 bool TextEditor::NextLine()
@@ -125,22 +125,22 @@ void TextEditor::ChangeLine()
 	{
 		if (initialResponse == true)
 		{
-			cout << "Ìæ»»µ±Ç°ĞĞÇëÊäÈëc;Ìæ»»ËùÓĞĞĞÇëÊäÈëa" << endl;
+			cout << "æ›¿æ¢å½“å‰è¡Œè¯·è¾“å…¥c;æ›¿æ¢æ‰€æœ‰è¡Œè¯·è¾“å…¥a" << endl;
 
 		}
 		else
 		{
-			cout << "ÇëÓÃc»òa»Ø´ğ" << endl;
+			cout << "è¯·ç”¨cæˆ–aå›ç­”" << endl;
 		}
 		cin >> answer;
 		answer = tolower(answer);
 		initialResponse = false;
 	} while (answer != 'a' && answer != 'c');
 
-	cout << "ÊäÈëÒª±»Ìæ»»µÄÖ¸¶¨ÎÄ±¾´®:" << endl;
+	cout << "è¾“å…¥è¦è¢«æ›¿æ¢çš„æŒ‡å®šæ–‡æœ¬ä¸²:" << endl;
 	string strOld;
 	cin >> strOld;
-	cout << "ÊäÈëĞÂÎÄ±¾´®" << endl;
+	cout << "è¾“å…¥æ–°æ–‡æœ¬ä¸²" << endl;
 	string strNew;
 	cin >> strNew;
 
@@ -171,12 +171,12 @@ void TextEditor::FindString()
 	{
 		if (initialResponce = true)
 		{
-			cout << "Èç¹û´ÓµÚÒ»ĞĞ¿ªÊ¼²éÕÒÊäÈëf£»Èç¹û´Óµ±Ç°ĞĞ¿ªÊ¼²éÕÒÊäÈëc" << endl;
+			cout << "å¦‚æœä»ç¬¬ä¸€è¡Œå¼€å§‹æŸ¥æ‰¾è¾“å…¥fï¼›å¦‚æœä»å½“å‰è¡Œå¼€å§‹æŸ¥æ‰¾è¾“å…¥c" << endl;
 
 		}
 		else
 		{
-			cout << "ÇëÊ¹ÓÃf»òc»Ø´ğ" << endl;
+			cout << "è¯·ä½¿ç”¨fæˆ–cå›ç­”" << endl;
 		}
 		cin >> answer;
 		answer = tolower(answer);
@@ -188,7 +188,7 @@ void TextEditor::FindString()
 	string strLine;
 	textBuffer.GetElem(curLineNo, strLine);
 	string strSearch;
-	cout << "ÇëÊäÈëÄãÏëÒª²éÕÒµÄ×Ö·û´®" << endl;
+	cout << "è¯·è¾“å…¥ä½ æƒ³è¦æŸ¥æ‰¾çš„å­—ç¬¦ä¸²" << endl;
 	cin >> strSearch;
 	int index;
 	while ((index = strLine.find(strSearch)) == -1)
@@ -205,7 +205,7 @@ void TextEditor::FindString()
 	}
 	if (index == -1)
 	{
-		cout << "²éÕÒÊ§°Ü" << endl;
+		cout << "æŸ¥æ‰¾å¤±è´¥" << endl;
 
 	}
 	else
@@ -240,12 +240,12 @@ void TextEditor::View()
 void TextEditor::ReadFile()
 {
 	char s[318],infileName[20];
-	cout << "ÇëÊäÈëÎÄ¼şÃû" << endl;
+	cout << "è¯·è¾“å…¥æ–‡ä»¶å" << endl;
 	cin >> infileName;
 	inFile.open(infileName);
 	if (inFile.fail())
 	{
-		cout << "´ò¿ªÎÄ¼şÊ§°Ü£¡" << endl;
+		cout << "æ‰“å¼€æ–‡ä»¶å¤±è´¥ï¼" << endl;
 		exit(1);
 	}
 	inFile.getline(s, 318);
@@ -264,12 +264,12 @@ void TextEditor::ReadFile()
 void TextEditor::WriteFile()
 {
 	char outfileName[20];
-	cout << "ÇëÊäÈëÎÄ¼şÃû" << endl;
+	cout << "è¯·è¾“å…¥æ–‡ä»¶å" << endl;
 	cin >> outfileName;
 	outFile.open(outfileName);
 	if (outFile.fail())
 	{
-		cout << "´ò¿ªÎÄ¼şÊ§°Ü!" << endl;
+		cout << "æ‰“å¼€æ–‡ä»¶å¤±è´¥!" << endl;
 		exit(1);
 	}
 	string strLine;
@@ -290,7 +290,7 @@ void TextEditor::Statisticts()
 		textBuffer.GetElem(i, tempStr);
 		sumOfChar += tempStr.length();
 	}
-	cout << "ĞĞÊı£º" << textBuffer.Length() << "  " << "×Ö·ûÊı£º" << sumOfChar << endl;
+	cout << "è¡Œæ•°ï¼š" << textBuffer.Length() << "  " << "å­—ç¬¦æ•°ï¼š" << sumOfChar << endl;
 
 }
 
@@ -307,11 +307,11 @@ void TextEditor::Run()
 		{
 			textBuffer.GetElem(curLineNo, curLine);
 			cout << curLineNo << ":" << curLine << endl;
-			cout << "ÇëÊäÈëÄãµÄÃüÁî£º";
+			cout << "è¯·è¾“å…¥ä½ çš„å‘½ä»¤ï¼š";
 		}
 		else
 		{
-			cout << "ÎÄ¼ş»º´æÎª¿Õ" << endl;
+			cout << "æ–‡ä»¶ç¼“å­˜ä¸ºç©º" << endl;
 
 		}
 
@@ -329,7 +329,7 @@ void TextEditor::Run()
 		case 'b':
 			if (textBuffer.Empty())
 			{
-				cout << "¾¯¸æ£ºÎÄ±¾»º´æ¿Õ" << endl;
+				cout << "è­¦å‘Šï¼šæ–‡æœ¬ç¼“å­˜ç©º" << endl;
 			}
 			else
 			{
@@ -339,7 +339,7 @@ void TextEditor::Run()
 		case 'c':
 			if (textBuffer.Empty())
 			{
-				cout << "¾¯¸æ£ºÎÄ±¾»º´æ¿Õ" << endl;
+				cout << "è­¦å‘Šï¼šæ–‡æœ¬ç¼“å­˜ç©º" << endl;
 
 			}
 			else
@@ -350,14 +350,14 @@ void TextEditor::Run()
 		case 'd':
 			if (textBuffer.Delete(curLineNo, tempString) == RANGE_ERROR)
 			{
-				cout << "É¾³ıÊ§°Ü" << endl;
+				cout << "åˆ é™¤å¤±è´¥" << endl;
 
 			}
 			break;
 		case 'e':
 			if (textBuffer.Empty())
 			{
-				cout << "¾¯¸æ£ºÎÄ±¾»º´æ¿Õ" << endl;
+				cout << "è­¦å‘Šï¼šæ–‡æœ¬ç¼“å­˜ç©º" << endl;
 			}
 			else
 			{
@@ -367,7 +367,7 @@ void TextEditor::Run()
 		case 'f':
 			if (textBuffer.Empty())
 			{
-				cout << "¾¯¸æ£ºÎÄ±¾»º´æ¿Õ" << endl;
+				cout << "è­¦å‘Šï¼šæ–‡æœ¬ç¼“å­˜ç©º" << endl;
 			}
 			else
 			{
@@ -377,31 +377,31 @@ void TextEditor::Run()
 		case 'g':
 			if (GotoLine() != true)
 			{
-				cout << "ÄÇĞĞ²»´æÔÚ" << endl;
+				cout << "é‚£è¡Œä¸å­˜åœ¨" << endl;
 			}
 			break;
 		case 'h':
-			cout << "¿ÉÓÃÃüÁî£ºb(egin) c(hange) d(elete) e(nd)" << endl
+			cout << "å¯ç”¨å‘½ä»¤ï¼šb(egin) c(hange) d(elete) e(nd)" << endl
 				<< "f(ind) g(o) h(elp) i(nsert) n(ext) p(rior)" << endl
 				<< "q(uit) r(ead) s(tatistics) u(ndo) v(iew) w(rite)" << endl;
 			break;
 		case 'i':
 			if (!InsertLine())
 			{
-				cout << "²åÈëĞĞÓĞÎó" << endl;
+				cout << "æ’å…¥è¡Œæœ‰è¯¯" << endl;
 			
 			}
 			break;
 		case 'n':
 			if (!NextLine())
 			{
-				cout << "ÎŞÏÂÒ»ĞĞ" << endl;
+				cout << "æ— ä¸‹ä¸€è¡Œ" << endl;
 			}
 			break;
 		case 'p':
 			if (!PreviousLine())
 			{
-				cout << "ÎŞÉÏÒ»ĞĞ" << endl;
+				cout << "æ— ä¸Šä¸€è¡Œ" << endl;
 			}
 			break;
 		case 'q':
@@ -422,7 +422,7 @@ void TextEditor::Run()
 		case 'w':
 			if (textBuffer.Empty())
 			{
-				cout << "ÎÄ±¾»º´æÎª¿Õ" << endl;
+				cout << "æ–‡æœ¬ç¼“å­˜ä¸ºç©º" << endl;
 			}
 			else
 			{
@@ -430,11 +430,18 @@ void TextEditor::Run()
 			}
 			break;
 		default:
-			cout << "ÇëÊäÈëÓĞĞ§ÃüÁî£¬ÈçĞè°ïÖú²é¿´ÃüÁîÇëÊäÈëh" << endl;
+			cout << "è¯·è¾“å…¥æœ‰æ•ˆå‘½ä»¤ï¼Œå¦‚éœ€å¸®åŠ©æŸ¥çœ‹å‘½ä»¤è¯·è¾“å…¥h" << endl;
 
 		}
 
 		
 	}while (userCommand != 'q');
+	
+	cout << "ä½ æƒ³è¦ä¿å­˜ç¼–è¾‘ç»“æœå—ï¼Ÿè¯·è¾“å…¥Y/N" << endl;
+	cin >> userCommand;
+	if (tolower(userCommand) == 'y')
+	{
+		WriteFile();
+	}
 
 }
