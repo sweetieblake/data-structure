@@ -1,11 +1,12 @@
-#include"TextEditor.h"
-#include<process.h>
+#include"caculator.h"
+
 
 int main(void)
 {
-	TextEditor demo("demo.txt");
-	demo.Run();
+	Caculator<double> sun;
+	sun.Run();
 
 	system("PAUSE");
 	return 0;
+
 }
