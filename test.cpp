@@ -1,29 +1,18 @@
-#include"HuffmanCompress.h"
+#include"CourseManager.h"
 
 int main(void)
 {
-	HuffmanCompress demo;
+	char ch[318];
+	cout << "请输入课程信息文件：" << endl;
+	cin >> ch;
 
-	cout << "请选择你想要的操作：" << endl;
-	cout << "a.压缩文件 b.解压文件 c.退出" << endl;
-	char userCommand;
-	cin >> userCommand;
+	CourseManager demo;
 
-	while (tolower(userCommand) != 'c')
-	{
-		if (tolower(userCommand) == 'a')
-		{
-			demo.Compress();
-		}
-		else if (tolower(userCommand) == 'b')
-		{
-			demo.DeCompress();
-		}
-		else
-		{
-			cout << "请输入abc" << endl;
-		}
-		cin >> userCommand;
-	}
+	demo.courseManage(ch);
+	demo.show();
+	system("PAUSE");
+
 	return 0;
+
 }
+
